@@ -57,6 +57,9 @@ public class ATM {
                         System.out.println("請先建立帳戶!");
                     }
                     break;
+                case 5:
+                    System.out.println("轉帳");
+                    break;
                 case 9:
                     System.out.println("離開");
                     break atm_loop;

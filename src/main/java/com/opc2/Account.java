@@ -25,6 +25,13 @@ public class Account {
             System.out.printf("提款: %d 失敗(存款金額必須大於0或餘額不足)!\n", money);
         }
     }
+    //轉帳
+    void transfer(int money, Account ac) {
+        if(money > 0 && balance >= money) {
+            withdraw(money);
+            ac.setBalance(money);
+        }
+    }
 
     //印出帳戶餘額
     void printBalance() {
