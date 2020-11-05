@@ -3,8 +3,9 @@ package com.opc2;
 import java.util.Scanner;
 
 public class ATM {
-
+    
     public static void main(String[] args) {
+        Account ac1 = null;
         atm_loop: //迴圈名
         do {
             // menu
@@ -23,23 +24,47 @@ public class ATM {
             switch (no) {
                 case 1:
                     System.out.println("建立新帳戶");
+                    ac1 = new Account();
+                    System.out.println("請輸入帳戶名稱");
+                    String name = sc.next();
+                    ac1.name = name;
                     break;
                 case 2:
                     System.out.println("存款");
+                    if (ac1 != null) {
+                        System.out.println("請輸入存款金額: ");
+                        int money = sc.nextInt();
+                        ac1.setBalance(money);
+                    } else {
+                        System.out.println("請先建立帳戶!");
+                    }
                     break;
                 case 3:
                     System.out.println("提款");
+                    if (ac1 != null) {
+                        System.out.println("請輸入提款金額: ");
+                        int money = sc.nextInt();
+                        ac1.withdraw(money);
+                    } else {
+                        System.out.println("請先建立帳戶!");
+                    }
                     break;
                 case 4:
                     System.out.println("查詢");
+                    if (ac1 != null) {
+                        ac1.printBalance();
+                    } else {
+                        System.out.println("請先建立帳戶!");
+                    }
                     break;
                 case 9:
                     System.out.println("離開");
                     break atm_loop;
-
             }
-
+            // 按下Enter 鍵後繼續
+            System.out.println("按下 Enter 鍵後繼續 ...");
+            new Scanner(System.in).nextLine();
         } while (true);
     }
-
+    
 }
