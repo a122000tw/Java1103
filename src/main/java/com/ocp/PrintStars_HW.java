@@ -13,5 +13,8 @@ public class PrintStars_HW {
             }
             System.out.println();
         }
+        int n = 7;
+        int middle = (int) (Math.ceil(n/2.0));
+        System.out.println(middle);
     }
 }
