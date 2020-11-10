@@ -1,4 +1,4 @@
-package com.opc2;
+package com.ocp2;
 
 import java.util.Scanner;
 

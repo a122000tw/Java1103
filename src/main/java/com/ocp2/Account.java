@@ -1,4 +1,4 @@
-package com.opc2;
+package com.ocp2;
 
 // 帳戶
 public class Account {

@@ -1,5 +1,5 @@
 
-package com.opc2;
+package com.ocp2;
 
 public class TransferTest {
     public static void main(String[] args) {
