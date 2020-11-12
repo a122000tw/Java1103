@@ -55,4 +55,8 @@ public class ArrayDemo {
         double sum = getSum(array);
         return sum / array.length;
     }
+
+    static boolean toString(int[] scores) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
