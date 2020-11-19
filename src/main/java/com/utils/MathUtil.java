@@ -31,8 +31,6 @@ public class MathUtil {
         double sd = Math.sqrt((1.0 / values.length) * h_diff_sum);
         return sd;
     }
-    
-    
 
     // 變異係數
     public static double cv(double[] values) {
@@ -41,11 +39,10 @@ public class MathUtil {
         double cv = sd / avg;
         return cv;
     }
-    
+
     public static double cv(double sd, double avg) {
         return sd / avg;
     }
-    
 
     // 取得最大值  
     public static double max(double[] values) {
