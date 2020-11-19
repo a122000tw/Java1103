@@ -8,12 +8,16 @@ public class ForLoop3 {
             {{70, 90}, {80, 100}, {90, 90}}
         };
         // 求所有數字的總和?
+        int sum = 0;
         for (int[][] num : nums) {
-            for (int[] is : num) {
-                for (int i : is) {
-                    System.out.println(i);
+            for (int[] nu : num) {
+                for (int n : nu) {
+                    System.out.println(n);
+                    sum += n;
                 }
+                
             }
         }
+        System.out.printf("sum = %d\n", sum);
     }
 }
