@@ -12,7 +12,7 @@ public class Main {
         Transportation[] trans = rc.getTransportations();
         System.out.println(Arrays.toString(trans));
         // 租一台車,三台腳踏車,兩台飛機
-        
+        int subtotal = 0;
         for (Transportation ts : trans) {
             if (ts instanceof Car) {
                 ((Car) ts).paly();
@@ -22,7 +22,7 @@ public class Main {
                 int amount = ts.getAmount();
                 amount = amount - 1;
                 ts.setAmount(amount);
-
+                subtotal += 1 * ts.getPrice();
             }
             if (ts instanceof Bicycle) {
                 ((Bicycle) ts).message();
@@ -30,6 +30,7 @@ public class Main {
                 int amount = ts.getAmount();
                 amount = amount - 3;
                 ts.setAmount(amount);
+                subtotal += 3 * ts.getPrice();
             }
             if (ts instanceof Airplane) {
                 ((Airplane) ts).service();
@@ -37,6 +38,7 @@ public class Main {
                 int amount = ts.getAmount();
                 amount = amount - 2;
                 ts.setAmount(amount);
+                subtotal += 2 * ts.getPrice();
             }
 
         }
@@ -44,7 +46,7 @@ public class Main {
         // 更新後的庫存資料
         System.out.println("更新後庫存:" + Arrays.toString(trans));
         // 試問總租金是多少
-
+        System.out.printf("總租金: $%,d\n", subtotal);
     }
 
 }
