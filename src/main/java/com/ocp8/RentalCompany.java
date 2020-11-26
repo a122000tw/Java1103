@@ -1,7 +1,6 @@
 package com.ocp8;
 
 // 租賃公司
-import java.util.Arrays;
 
 public class RentalCompany {
 
