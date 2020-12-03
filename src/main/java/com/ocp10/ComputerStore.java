@@ -6,8 +6,10 @@ public class ComputerStore {
         PersonalComputer pc = new PersonalComputer();
         System.out.println(pc.add(10, 20));
         System.out.println(pc.getName());
-        Mobile mobile = new Mobile();
-        System.out.println(mobile.add(10, 20));
-        System.out.println(mobile.getName());
+        System.out.println(Computer.volt);
+        Computer computer = new IPhone();
+        System.out.println(computer.add(10, 20));
+        System.out.println(computer.getName());
+        System.out.println(Computer.volt);
     }
 }
