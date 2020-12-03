@@ -1,5 +1,5 @@
 
-package com.ocp10;
+package com.ocp10.computer;
 
 import java.math.BigInteger;
 
