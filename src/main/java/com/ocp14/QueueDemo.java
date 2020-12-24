@@ -15,12 +15,14 @@ public class QueueDemo {
         // 洗牌? 調換位置
         Collections.shuffle((List)pokers);
         System.out.println(pokers);
+        // 拿牌
         String card1 = pokers.poll();
         String card2 = pokers.poll();
         System.out.println(card1);
         System.out.println(card2);
         // 計算分數
         double score = getScore(card1, card2);
+        System.out.println(score);
         // double score = getScore(card1) + getScore(card2);        
         // 剩餘的牌
         System.out.println(pokers);
