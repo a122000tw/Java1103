@@ -2,7 +2,7 @@
 package ocp16;
 
 import com.ocp16_exception.Square;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class Test_Square {
