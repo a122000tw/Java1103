@@ -1,7 +1,7 @@
 
 package com.ocp16;
 
-public class ExecptionDemo4 {
+public class ExceptionDemo4 {
     public static void main(String[] args) {
         // foo(); 必須使用try-catch 或 throws 拋出
         // bar(); 直接使用即可
