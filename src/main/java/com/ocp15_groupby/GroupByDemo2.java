@@ -1,5 +1,5 @@
 
-package com.ocp15;
+package com.ocp15_groupby;
 
 import java.util.Arrays;
 import java.util.List;

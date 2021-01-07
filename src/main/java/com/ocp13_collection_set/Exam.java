@@ -1,5 +1,5 @@
 
-package com.ocp13;
+package com.ocp13_collection_set;
 
 import com.github.javafaker.Faker;
 import java.util.Random;

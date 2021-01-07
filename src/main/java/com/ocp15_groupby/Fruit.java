@@ -1,5 +1,5 @@
 
-package com.ocp15;
+package com.ocp15_groupby;
 
 public class Fruit {
     private String name;

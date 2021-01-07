@@ -1,5 +1,5 @@
 
-package com.ocp16;
+package com.ocp16_exception;
 
 import java.io.File;
 import java.io.FileNotFoundException;
