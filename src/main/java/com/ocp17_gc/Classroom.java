@@ -9,17 +9,20 @@ import java.util.List;
 class Student {
     String name;
     public Student(String name) { // 建構子
+        System.out.println(Thread.currentThread().getName() + "執行建構子");
         this.name = name;
         
     }
 
     @Override
     protected void finalize() throws Throwable {
+        System.out.println(Thread.currentThread().getName() + "執行解構子");
         System.out.println(name + "離開(被GC吞吃)");
     }
 
     @Override
     public String toString() {
+        System.out.println(Thread.currentThread().getName() + "執行toString()");
         return "\nStudent{" + "name=" + name + '}';
     }
     
