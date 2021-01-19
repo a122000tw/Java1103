@@ -17,17 +17,22 @@ public class Account {
     }
     
     // 提款程式
-    public void withdraw(int x) {
+    // synchronized 誰(執行續)先執行到此方法，開物件就歸誰掌管，其他人(執行續)則在外排隊
+    // synchronized 是保證一次只會有一個人進來提款
+    public synchronized void withdraw(int x) {
         String name = Thread.currentThread().getName();
         System.out.printf("%s 進來提款了\n", name);
         // 取得帳戶餘額
         int temp_money = getMoney();
+        // 模擬ATM 計算時間
+        for(int i =1;i < 99999999;i++);
+        
         if(temp_money >= x) { // 餘額充足
             // 提款成功 回寫餘額
             setMoney(temp_money - x);
-            System.out.printf("%s 提款 %d 成功, 帳戶餘額: %d\n", name, x, getMoney());
+            System.out.printf("%s 提款 $%d 成功, 帳戶餘額: $%d\n", name, x, getMoney());
          } else {
-            System.out.printf("%s 提款 %d 失敗, 帳戶餘額: %d\n", name, x, getMoney());
+            System.out.printf("%s 提款 $%d 失敗, 帳戶餘額: $%d\n", name, x, getMoney());
         }
         System.out.printf("%s 完成提款了\n", name);
     }
