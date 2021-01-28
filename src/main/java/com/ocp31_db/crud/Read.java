@@ -1,5 +1,5 @@
 
-package com.ocp31_db;
+package com.ocp31_db.crud;
 // CRUD (create read update delete)
 
 import java.sql.Connection;
