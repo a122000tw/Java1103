@@ -42,6 +42,8 @@ public class Read {
         System.out.printf("|----------------------------------------|\n");
         
         // 6. 走訪 ResultSet 資料集合
+        int totalAmount = 0;
+        int totalPrice = 0;
         while (rs.next()) {
             // ("大小寫皆可")
             int id = rs.getInt("id");
@@ -49,10 +51,13 @@ public class Read {
             int price = rs.getInt("price");
             int amount = rs.getInt("amount");
             Date tdate = rs.getDate("tdate");
-            
+            totalAmount += amount;
+            totalPrice += price * amount;
             System.out.printf("|%2d|%10s|%6d|%6d|%12s|\n", id, name, price, amount, tdate);
         }
-        
+        System.out.printf("|----------------------------------------|\n");
+        System.out.printf("|%20S|%,6d|%12s|\n", "Total amount", totalAmount, "");
+        System.out.printf("|%20S|%,6d|%12s|\n", "Total price", totalPrice, "");
         conn.close();
     }
 }
