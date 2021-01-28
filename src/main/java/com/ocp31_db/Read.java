@@ -58,6 +58,8 @@ public class Read {
         System.out.printf("|----------------------------------------|\n");
         System.out.printf("|%20S|%,6d|%12s|\n", "Total amount", totalAmount, "");
         System.out.printf("|%20S|%,6d|%12s|\n", "Total price", totalPrice, "");
+        rs.close();
+        stmt.close();
         conn.close();
     }
 }
