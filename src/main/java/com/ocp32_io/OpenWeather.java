@@ -35,13 +35,10 @@ public class OpenWeather {
         double feels_like = main.getDouble("feels_like") - 273.15;
         int humidity = main.getInt("humidity");
         int dt = root.getInt("dt");
-        //-------------------------------------------------------------------------------------------------------------------
-        Calendar calendar = Calendar.getInstance();
-        TimeZone tz = TimeZone.getDefault();
-        calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.getTimeInMillis()));
+        //---------------------------------------------------------------------------------------
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        java.util.Date currenTimeZone = new java.util.Date((long)dt*1000);
-        //--------------------------------------------------------------------------------------------------------------
+        Date currenTimeZone=new Date((long)dt*1000);
+        //---------------------------------------------------------------------------------------
         System.out.printf("目前溫度: %.2f\n", temp);
         System.out.printf("體感溫度: %.2f\n", feels_like);
         System.out.printf("目前濕度: %d %%\n", humidity);
