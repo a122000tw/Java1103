@@ -3,9 +3,7 @@ package com.ocp32_io;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 
 public class ReadTexFromFile {
     public static void main(String[] args) {
