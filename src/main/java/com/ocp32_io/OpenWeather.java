@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
+import org.json.JSONObject;
 
 public class OpenWeather {
     public static void main(String[] args) throws Exception{
@@ -22,5 +23,15 @@ public class OpenWeather {
             jsonStr += (char)data;
         }
         System.out.println(jsonStr);
+        // 分析 Json 字串
+        JSONObject root = new JSONObject(jsonStr);
+        JSONObject main = root.getJSONObject("main");
+        double temp = main.getDouble("temp") - 273.15;
+        double feels_like = main.getDouble("feels_like") - 273.15;
+        int humidity = main.getInt("humidity");
+        
+        System.out.printf("目前溫度: %.2f\n", temp);
+        System.out.printf("體感溫度: %.2f\n", feels_like);
+        System.out.printf("目前濕度: %d %%\n", humidity);
     }
 }
