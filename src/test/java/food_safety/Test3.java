@@ -10,7 +10,7 @@ public class Test3 {
     public void t2() {
         
         Service service = new Service();
-        for(Rice r : service.queryRicesFromTable())
+        for(Rice r : service.queryRicesFromTable("日"))
             System.out.println(r.get品名() + " : " + r.get檢驗結果() + " : " + r.get不合格原因());
     }
     

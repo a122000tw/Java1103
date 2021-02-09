@@ -8,6 +8,7 @@ package food_salety;
 import food_salety.entity.Rice;
 import food_salety.util.Service;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -28,6 +29,7 @@ public class RiceJFrame extends javax.swing.JFrame {
     private void showRiceTable(List<Rice> rices) {
         // 清空 rice_table的內容
         DefaultTableModel model = (DefaultTableModel)rice_table.getModel();
+        model.setNumRows(0);
         // 逐筆將資料放入 rice_table 內
         for(Rice r : rices) { 
             Object[] rowData = {r.getId(), r.get品名(), r.get檢驗結果(), r.get不合格原因(), r.get行政處分()};
@@ -46,6 +48,7 @@ public class RiceJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -57,9 +60,19 @@ public class RiceJFrame extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("新細明體", 0, 24)); // NOI18N
         jButton1.setText("清空");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("新細明體", 0, 24)); // NOI18N
         jButton2.setText("匯入");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("新細明體", 0, 24)); // NOI18N
         jButton3.setText("查詢");
@@ -121,10 +134,36 @@ public class RiceJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // 查詢 button
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        String keyword = kw.getText();
+        List<Rice> rices = service.queryRicesFromTable(keyword);
+        showRiceTable(rices);
     }//GEN-LAST:event_jButton3ActionPerformed
+    // 清空 button
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        service.clearRiceTable();
+        List<Rice> rices = service.queryRicesFromTable();
+        showRiceTable(rices);
+        if(rices.size() == 0) {
+            JOptionPane.showMessageDialog(rootPane, "資料已清除");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "清除失敗");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+    // 匯入 button
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String url = "https://data.coa.gov.tw/Service/OpenData/FromM/AgricultureiRiceFailure.aspx";
+        service.importToRiceTable(url);
+        List<Rice> rices = service.queryRicesFromTable();
+        showRiceTable(rices);
+        if(rices.size() > 0) {
+            JOptionPane.showMessageDialog(rootPane, "資料已匯入");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "匯入失敗或無資料可供匯入");
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +205,7 @@ public class RiceJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField kw;
     private javax.swing.JTable rice_table;
     // End of variables declaration//GEN-END:variables

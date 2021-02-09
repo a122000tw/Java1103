@@ -101,7 +101,7 @@ public class Service {
     // 取得 Rice Table 的所有資料
     public List<Rice> queryRicesFromTable() {
         List<Rice> rices = new ArrayList<>();
-        String sql = "Select id, Title, 編號, 品名, 國際條碼, 廠商名稱, 廠商地址, 檢驗結果, 不合格原因, 違反規定, 行政處分, Log_UpdateTime";
+        String sql = "Select id, Title, 編號, 品名, 國際條碼, 廠商名稱, 廠商地址, 檢驗結果, 不合格原因, 違反規定, 行政處分, Log_UpdateTime From Rice";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -130,7 +130,7 @@ public class Service {
     // 利用關鍵字查詢 Rice Table 的資料
     public List<Rice> queryRicesFromTable(String keyword) {
         List<Rice> rices = new ArrayList<>();
-        String sql = "Select id, Title, 編號, 品名, 國際條碼, 廠商名稱, 廠商地址, 檢驗結果, 不合格原因, 違反規定, 行政處分, Log_UpdateTime";
+        String sql = "Select id, Title, 編號, 品名, 國際條碼, 廠商名稱, 廠商地址, 檢驗結果, 不合格原因, 違反規定, 行政處分, Log_UpdateTime From Rice Where 品名 like ?";
         try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, "%" + keyword + "%");
             ResultSet rs = pstmt.executeQuery();
