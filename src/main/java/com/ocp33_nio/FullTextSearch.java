@@ -13,7 +13,7 @@ public class FullTextSearch {
         // 寫了幾隻 Java 程式
         String path = "C:\\Users\\MB-207\\Documents\\NetBeansProjects\\Java1103\\src\\main\\java";
         Stream<Path> paths = Files.walk(Paths.get(path));
-        paths.parallel()
+        paths.parallel() // parallel() 多執行續執行
             .filter(p -> p.toString().contains(".java"))
             .filter(p -> {
                 try {
