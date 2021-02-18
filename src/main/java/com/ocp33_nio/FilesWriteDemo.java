@@ -12,7 +12,7 @@ public class FilesWriteDemo {
     public static void main(String[] args) throws IOException {
         Path path = Paths.get("src\\main\\java\\com\\ocp33_nio\\score.csv");
         String data = "\n99";
-        Files.write(path, data.getBytes(), StandardOpenOption.APPEND);
+        Files.write(path, data.getBytes(), StandardOpenOption.APPEND); // 寫入
         
     }
 }
